@@ -1,3 +1,5 @@
+#include "Configurations.h"
+
 volatile int liczba;
 bool przod;
 void ISR_CYK()
@@ -12,11 +14,11 @@ void setup() {
   liczba = 0;
   Serial.begin(9600);
   attachInterrupt(digitalPinToInterrupt(2), ISR_CYK,RISING );
-  pinMode(2, INPUT_PULLUP); 
-  pinMode(3,OUTPUT);
-  pinMode(4,OUTPUT);
-  pinMode(6,OUTPUT);
-  analogWrite(6,255); 
+  pinMode(WEJCIE_ENK1, INPUT_PULLUP); 
+  pinMode(WYJSCIE_SIL1_1,OUTPUT);
+  pinMode(WYJSCIE_SIL1_2,OUTPUT);
+  pinMode(WYJSCIE_SIL1_PWM,OUTPUT);
+  analogWrite(WYJSCIE_SIL1_PWM,255); 
 
 }
 
